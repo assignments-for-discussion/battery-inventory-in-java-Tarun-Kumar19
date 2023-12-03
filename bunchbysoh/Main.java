@@ -62,31 +62,31 @@ public class Main {
 
         // Test with batteries having test SoH values
         int[] testSOHvalues1 = {98, 76, 40}; // 100 * value / 120 = SoH%
-        CountsBySoH testSOHvalues1 = countBatteriesByHealth(testSOHvalues1);
-        assert(testSOHvalues1.healthy == 1);
-        assert(testSOHvalues1.exchange == 1);
-        assert(testSOHvalues1.failed == 1);
+        CountsBySoH testvalues1 = countBatteriesByHealth(testSOHvalues1);
+        assert(testvalues1.healthy == 1);
+        assert(testvalues1.exchange == 1);
+        assert(testvalues1.failed == 1);
 
         // Test with batteries having test SoH values
         int[] testSOHvalues2 = {97, 74, 47}; // 100 * value / 120 = SoH%
-        CountsBySoH testSOHvalues2 = countBatteriesByHealth(testSOHvalues2);
-        assert(testSOHvalues2.healthy == 1);
-        assert(testSOHvalues2.exchange == 1);
-        assert(testSOHvalues2.failed == 1);
+        CountsBySoH testvalues2 = countBatteriesByHealth(testSOHvalues2);
+        assert(testvalues2.healthy == 1);
+        assert(testvalues2.exchange == 1);
+        assert(testvalues2.failed == 1);
 
         // Test with batteries having test SoH values
         int[] testSOHvalues3 = {101, 73, 43}; // 100 * value / 120 = SoH%
-        CountsBySoH testSOHvalues3 = countBatteriesByHealth(testSOHvalues3);
-        assert(testSOHvalues3.healthy == 1);
-        assert(testSOHvalues3.exchange == 1);
-        assert(testSOHvalues3.failed == 1);
+        CountsBySoH testvalues3 = countBatteriesByHealth(testSOHvalues3);
+        assert(testvalues3.healthy == 1);
+        assert(testvalues3.exchange == 1);
+        assert(testvalues3.failed == 1);
 
         // Test with an empty SoH array
         int[] emptySoHArray = {};
-        CountsBySoH emptySoHArray = countBatteriesByHealth(emptySoHArray);
-        assert(emptySoHArray.healthy == 0);
-        assert(emptySoHArray.exchange == 0);
-        assert(emptySoHArray.failed == 0);
+        CountsBySoH emptyArray = countBatteriesByHealth(emptySoHArray);
+        assert(emptyArray.healthy == 0);
+        assert(emptyArray.exchange == 0);
+        assert(emptyArray.failed == 0);
 
         // Test with a single battery with 100% SoH
         int[] singleBattery100SoH = {120}; // 100 * 120 / 120 = 100%
