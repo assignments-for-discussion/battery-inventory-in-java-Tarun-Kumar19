@@ -75,7 +75,7 @@ public class Main {
         assert(testvalues2.failed == 1);
 
         // Test with batteries having test SoH values
-        int[] testSOHvalues3 = {101, 73, 43}; // 100 * value / 120 = SoH%
+        int[] testSOHvalues3 = {101, 79, 43}; // 100 * value / 120 = SoH%
         CountsBySoH testvalues3 = countBatteriesByHealth(testSOHvalues3);
         assert(testvalues3.healthy == 1);
         assert(testvalues3.exchange == 1);
