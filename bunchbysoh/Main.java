@@ -57,12 +57,57 @@ public class Main {
         System.out.println("Done counting :)\n");
     }
 
-    /**
-     * Main function to run the test.
-     *
-     * @param args Command-line arguments (not used in this example).
-     */
+    static void additionalTests() {
+        System.out.println("Running additional tests...\n");
+
+        // Test with batteries having test SoH values
+        int[] testSOHvalues1 = {98, 76, 40}; // 100 * value / 120 = SoH%
+        CountsBySoH testSOHvalues1 = countBatteriesByHealth(testSOHvalues1);
+        assert(testSOHvalues1.healthy == 1);
+        assert(testSOHvalues1.exchange == 1);
+        assert(testSOHvalues1.failed == 1);
+
+        // Test with batteries having test SoH values
+        int[] testSOHvalues2 = {97, 74, 47}; // 100 * value / 120 = SoH%
+        CountsBySoH testSOHvalues2 = countBatteriesByHealth(testSOHvalues2);
+        assert(testSOHvalues2.healthy == 1);
+        assert(testSOHvalues2.exchange == 1);
+        assert(testSOHvalues2.failed == 1);
+
+        // Test with batteries having test SoH values
+        int[] testSOHvalues3 = {101, 73, 43}; // 100 * value / 120 = SoH%
+        CountsBySoH testSOHvalues3 = countBatteriesByHealth(testSOHvalues3);
+        assert(testSOHvalues3.healthy == 1);
+        assert(testSOHvalues3.exchange == 1);
+        assert(testSOHvalues3.failed == 1);
+
+        // Test with an empty SoH array
+        int[] emptySoHArray = {};
+        CountsBySoH emptySoHArray = countBatteriesByHealth(emptySoHArray);
+        assert(emptySoHArray.healthy == 0);
+        assert(emptySoHArray.exchange == 0);
+        assert(emptySoHArray.failed == 0);
+
+        // Test with a single battery with 100% SoH
+        int[] singleBattery100SoH = {120}; // 100 * 120 / 120 = 100%
+        CountsBySoH countsSingleBattery100 = countBatteriesByHealth(singleBattery100SoH);
+        assert(countsSingleBattery100.healthy == 1);
+        assert(countsSingleBattery100.exchange == 0);
+        assert(countsSingleBattery100.failed == 0);
+
+        // Test with a single battery with 0% SoH
+        int[] singleBattery0SoH = {0}; // 100 * 0 / 120 = 0%
+        CountsBySoH countsSingleBattery0 = countBatteriesByHealth(singleBattery0SoH);
+        assert(countsSingleBattery0.healthy == 0);
+        assert(countsSingleBattery0.exchange == 0);
+        assert(countsSingleBattery0.failed == 1);
+
+        System.out.println("Additional tests passed :)\n");
+    }
+
+   
     public static void main(String[] args) {
-        testBucketingByHealth();
+        testBucketingByHealth(); // calling function that contains main logic for battery classification 
+        additionalTests(); // calling function having additional edge cases
     }
 }
